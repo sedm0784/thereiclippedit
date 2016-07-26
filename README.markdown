@@ -33,7 +33,7 @@ to inform you your clipboard is ready to SATE your PASTE-FURY.
 *(Windows does not include a method of creating watch folders as part of the
 operating system. It's possible to create a program that carries out this task,
 but one of the reasons I decided to write There, I Clipped It, was because I
-didn't want to have a dededicated program running 24/7 just to provide this
+didn't want to have a dedicated program running 24/7 just to provide this
 functionality. As such, in order to copy the newly received clipboard contents,
 you must manually initiate the copy with a keyboard shortcut: Ctrl+Alt+C)*
 
