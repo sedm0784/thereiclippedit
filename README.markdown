@@ -8,14 +8,14 @@ INSTANTLY squirt your clipboard from your iOS devices to your computers and
 vice versa.
 
 I made it because it was fun to do, and in order to avoid having to be LOCKED
-IN to any of the numerous professional solutions for this problem<sup>\*</sup>.
+IN to any of the numerous commercial solutions for this problem<sup>1</sup>.
 
 It is named in homage to the [meme wherein repairs are made in an inelegant but
 effective style](http://google.com/search?q=there+i+fixed+it). If There, I
 Clipped It existed outside of your computing device, it would consist entirely
 of gaffer tape and odd bits of cardboard.
 
-<sup>\* Read: because I am a cheapskate.</sup>
+<sup>1: Read: because I am a cheapskate.</sup>
 
 ## How Does It Work?
 
@@ -30,15 +30,24 @@ for that file to be created (via
 replace your clipboard with the file's contents. A Growl notification pops up
 to inform you your clipboard is ready to SATE your PASTE-FURY.
 
+*(Windows does not include a method of creating watch folders as part of the
+operating system. It's possible to create a program that carries out this task,
+but one of the reasons I decided to write There, I Clipped It, was because I
+didn't want to have a dededicated program running 24/7 just to provide this
+functionality. As such, in order to copy the newly received clipboard contents,
+you must manually initiate the copy with a keyboard shortcut: Ctrl+Alt+C)*
+
 ### Squirting Your Computer's Clipboard to iOS
 
-You press a keyboard shortcut. (I'm using Command+Option+Ctrl+V). This invokes
-the There, I Clipped It Service, which runs a Python script which reads your
-clipboard and sends it to your iOS device as a push notification (via the
-[Pushover app](http://pushover.net/)). When your iOS device pings, you open the
+You press a keyboard shortcut.<sup>2</sup>. This invokes the There, I Clipped
+It Service, which runs a Python script which reads your clipboard and sends it
+to your iOS device as a push notification (via the [Pushover
+app](http://pushover.net/)). When your iOS device pings, you open the
 notification and tap on a link, which runs a script in the [Pythonista
 app](http://omz-software.com/pythonista/) which replaces your iOS clipboard
 with the copied text.
+
+<sup>2: I'm using Command+Option+Ctrl+V on OS X and Ctrl+Alt+V on Windows.</sup>
 
 ## Sounds Good; I Want It.
 
@@ -57,7 +66,8 @@ Oh, and it only works for text.
 
 ## I Don't Care. I Want It. How Do I Get It?
 
-First, you need to make sure you own/fulfil the following requirements:
+Okay, fine. First, you need to make sure you own/fulfil the following
+requirements:
 
 1. An iOS device with the following apps installed:
 
@@ -93,14 +103,20 @@ First, you need to make sure you own/fulfil the following requirements:
 
 1. Installs the Python requirements: requests, pyperclip, and gntp,
 
-2. Configures and installs the launchd plist to the location:
+2. *OS X:* Configures and installs the launchd plist to the location:
    `~/Library/LaunchAgents/`
 
-3. Configures and installs the There, I Clipped It Automator workflow as a
-   Service.
+3. *OS X:* Configures and installs the There, I Clipped It Automator workflow as a
+   Service. (in `~/Library/Services/`
 
-4. GENTLY reminds you (where) to set up a keyboard shortcut in System
+4. *OS X:* GENTLY reminds you (where) to set up a keyboard shortcut in System
    Preferences in order to invoke There, I Clipped It quickly.
+
+5. *Windows:* Configures and installs shortcuts for pushing and pulling you
+   clipboard to your "Programs" folder. The push shortcut has the keyboard
+   shortcut Ctrl+Alt+V and the pull shortcut has the keyboard shortcut
+   Ctrl+Alt+C. If you want to use different shortcuts, you can edit them by
+   right-clicking on the installed shortcut files and selecting "Properties".
 
 ## iOS Installation
 
@@ -110,17 +126,14 @@ First, you need to make sure you own/fulfil the following requirements:
    Installation,
 
 3. (Optional, recommended) Set up some method of firing off the Workflow
-   quickly. I added a shortcut to the [Launch Center Pro app](http://contrast.co/launch-center-pro/), but you could
-   create a home screen shortcut or Today view widget if you prefer.
+   quickly. I added a shortcut to the [Launch Center Pro
+   app](http://contrast.co/launch-center-pro/), but you could create a home
+   screen shortcut or Today view widget if you prefer.
 
 ## Roadmap
 
-I need to update this document to more fully describe the INFERIOR Windows
-features.
-
-Once that's out the door, then as far as I'm concerned, There, I Clipped It is
-COMPLETE, because it Works for Me&trade;. However, there *are* some things that
-could be added:
+As far as I'm concerned, There, I Clipped It is COMPLETE, because it Works for
+Me&trade;. However, there *are* some things that could be added:
 
 - The requirements list is both SPECIFIC and ONEROUS. I selected the various
   tools simply because those were the ones I already had installed, but There,
@@ -140,3 +153,6 @@ could be added:
 
 - Might be nice to offer notifications using OS X's Notification Center instead
   of Growl.
+
+- I should probably better document the contents of the repository. What
+  everything does and how it all works.
