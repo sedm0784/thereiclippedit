@@ -137,6 +137,11 @@ requirements:
    chicken-and-egg situation going on there. Sorry, you're on your own for this
    one. Worst-case scenario you're just going to have to type it in.
 
+5. Bonus feature! In order to squirt directly from iOS apps, install the
+   [There, I Clipped It Action
+   Extension](https://workflow.is/workflows/e6b0999ec8de4c76939e13c49432bcc2)
+   too.
+
 ## Roadmap
 
 As far as I'm concerned, There, I Clipped It is COMPLETE, because it Works for
