@@ -2,9 +2,9 @@
 
 ## What *Is* This?
 
-There, I Clipped It is an unholy amalgam of scripts, tools, and configuration
-settings that make it FAST and EASY to INSTANTLY squirt your clipboard from your iOS
-devices to your computers and vice versa.
+There, I Clipped It is a LIGHTWEIGHT but thoroughly UNHOLY amalgam of scripts,
+tools, and configuration settings that make it EASY to INSTANTLY squirt your
+clipboard from your iOS devices to your computers and vice versa.
 
 I made it because it was fun to do, and in order to avoid having to be LOCKED
 IN to any of the numerous professional solutions for this problem<sup>\*</sup>.
@@ -26,7 +26,8 @@ clipboard to be SQUIRTED to. It then saves the contents of your clipboard to a
 file in your Dropbox. The corresponding computer, which is watching like a HAWK
 for that file to be created (via
 [launchd](https://en.wikipedia.org/wiki/Launchd)), then runs a Python script to
-replace your clipboard with the file's contents.
+replace your clipboard with the file's contents. A Growl notification pops up
+to inform you your clipboard is ready to SATE your PASTE-FURY.
 
 ### Squirting the OS X clipboard to iOS
 
@@ -66,7 +67,9 @@ First, you need to make sure you own/fulfil the following requirements:
 2. At least one OS X computer with Python 3 and pip installed. (Windows version
    coming soon!)
 
-3. A Dropbox account.
+3. (Optional) [Growl](http://growl.info/)
+
+4. A Dropbox account.
 
 ## OS X Installation
 
@@ -109,3 +112,31 @@ First, you need to make sure you own/fulfil the following requirements:
 3. (Optional, recommended) Set up some method of firing off the Workflow
    quickly. I added a shortcut to the [Launch Center Pro app](http://contrast.co/launch-center-pro/), but you could
    create a home screen shortcut or Today view widget if you prefer.
+
+## Roadmap
+
+As previously mentioned, a Windows-compatible version of There, I Clipped It is
+Coming Soon.
+
+Once that's out the door, then as far as I'm concerned, There, I Clipped It is
+COMPLETE, because it Works for Me&trade;. However, there *are* some things that
+could be added:
+
+- The requirements list is both SPECIFIC and ONEROUS. I selected the various
+  tools simply because those were the ones I already had installed, but There,
+  I Clipped It is conceptually pretty simple, and each of the tools used has
+  any number of possible replacements. It might be nice to implement some
+  alternatives (e.g. Launch Center Pro instead of Workflow, Prowl instead of
+  Pushover) and allow the use of these.
+
+- Distribution: the contents of the repository could be made available as a zip
+  file.
+
+- Configurable `sharedboards` location: the advantage of storing *everything*
+  in Dropbox is that you only have to download/clone it once. However, you
+  might reasonably be reluctant to clutter up your Dropbox with the entire
+  tool. It should be possible to only have the `sharedboards` folder within
+  Dropbox.
+
+- Might be nice to offer notifications using OS X's Notification Center instead
+  of required Growl.
