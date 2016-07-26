@@ -172,5 +172,10 @@ Me&trade;. However, there *are* some things that could be added:
   Clipped It is zero, but if it turns out more people use it than expected, I
   might look into this one.
 
+- When sending text from an iOS device, you can pick a destination, but when
+  sending text from a computer, it is broadcast to *all* your iOS devices. This
+  is how I like it, but Pushover allows you to specify a destination: maybe you
+  would like There, I Clipped It to, also.
+
 - I should probably better document the contents of the repository. What
   everything does and how it all works.
