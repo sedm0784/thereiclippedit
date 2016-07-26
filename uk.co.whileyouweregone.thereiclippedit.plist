@@ -18,7 +18,7 @@
 	-->
 	<key>WatchPaths</key>
 	<array>
-		<string>/Users/richie/Dropbox/clipboardtool/sharedboards</string>
+		<string>%%WATCH_PATH%%</string>
 	</array>
 	<key>UserName</key>
 	<string>richie</string>

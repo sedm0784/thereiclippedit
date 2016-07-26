@@ -34,11 +34,13 @@ def main():
     launchagents_path = os.path.expanduser("~/Library/LaunchAgents")
     launchd_plist_source_path = "uk.co.whileyouweregone.thereiclippedit.plist"
     launchd_plist_destination_path = os.path.join(launchagents_path, launchd_plist_source_path)
-    clipboard_path = os.path.join(install_path, "sharedboards/clipboard-{}.txt".format(args.computername))
+    watch_path = os.path.join(install_path, "sharedboards")
+    clipboard_path = os.path.join(watch_path, "clipboard-{}.txt".format(args.computername))
     launchd_replacements = (
         ("%%PYTHON_PATH%%", python_path),
         ("%%PULL_SCRIPT_PATH%%", os.path.join(install_path, "pull_clipboard.py")),
-        ("%%CLIPBOARD_PATH%%", clipboard_path))
+        ("%%CLIPBOARD_PATH%%", clipboard_path),
+        ("%%WATCH_PATH%%", watch_path))
 
     fill_in_placeholders(os.path.join(install_path, launchd_plist_source_path), launchd_replacements, launchd_plist_destination_path)
 
