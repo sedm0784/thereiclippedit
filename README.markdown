@@ -2,9 +2,10 @@
 
 ## What *Is* This?
 
-There, I Clipped It is a LIGHTWEIGHT but thoroughly UNHOLY amalgam of scripts,
-tools, and configuration settings that make it EASY to INSTANTLY squirt your
-clipboard from your iOS devices to your computers and vice versa.
+There, I Clipped It is a lightweight, cross-platform, and thoroughly UNHOLY
+amalgam of scripts, tools, and configuration settings that make it EASY to
+INSTANTLY squirt your clipboard from your iOS devices to your computers and
+vice versa.
 
 I made it because it was fun to do, and in order to avoid having to be LOCKED
 IN to any of the numerous professional solutions for this problem<sup>\*</sup>.
@@ -18,7 +19,7 @@ of gaffer tape and odd bits of cardboard.
 
 ## How Does It Work?
 
-### Squirting the iOS clipboard to OS X
+### Squirting the iOS Clipboard to a Computer
 
 You invoke the There, I Clipped It workflow in the [Workflow
 app](http://workflow.is/). It asks you which of your computers you want your
@@ -29,7 +30,7 @@ for that file to be created (via
 replace your clipboard with the file's contents. A Growl notification pops up
 to inform you your clipboard is ready to SATE your PASTE-FURY.
 
-### Squirting the OS X clipboard to iOS
+### Squirting Your Computer's Clipboard to iOS
 
 You press a keyboard shortcut. (I'm using Command+Option+Ctrl+V). This invokes
 the There, I Clipped It Service, which runs a Python script which reads your
@@ -64,14 +65,13 @@ First, you need to make sure you own/fulfil the following requirements:
    - [Pushover](http://pushover.net/)
    - [Pythonista](http://omz-software.com/pythonista/)
 
-2. At least one OS X computer with Python 3 and pip installed. (Windows version
-   coming soon!)
+2. At least one computer with Python 3 and pip installed.
 
 3. (Optional) [Growl](http://growl.info/)
 
 4. A Dropbox account.
 
-## OS X Installation
+## Installation on a Computer
 
 1. Obtain the scripts, placing them in your Dropbox:
 
@@ -115,8 +115,8 @@ First, you need to make sure you own/fulfil the following requirements:
 
 ## Roadmap
 
-As previously mentioned, a Windows-compatible version of There, I Clipped It is
-Coming Soon.
+I need to update this document to more fully describe the INFERIOR Windows
+features.
 
 Once that's out the door, then as far as I'm concerned, There, I Clipped It is
 COMPLETE, because it Works for Me&trade;. However, there *are* some things that
