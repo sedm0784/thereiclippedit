@@ -91,7 +91,7 @@ First, you need to make sure you own/fulfil the following requirements:
 
 ### That Sounds a Bit Dodge. What Does the Installation Script Do?
 
-1. Installs the Python requirements: requests and gntp,
+1. Installs the Python requirements: requests, pyperclip, and gntp,
 
 2. Configures and installs the launchd plist to the location:
    `~/Library/LaunchAgents/`
