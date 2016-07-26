@@ -12,6 +12,9 @@ import tempfile
 logging.basicConfig(level=logging.WARNING,
                     format='%(asctime)s %(levelname)s %(message)s')
 
+push_script_name = "push_clipboard.py"
+pull_script_name = "pull_clipboard.py"
+
 def main():
     parser = argparse.ArgumentParser(description="Installs the various component parts of the There, I Clipped It tool.", epilog="N.B. The installer bakes the location of the python used to run it into the installed components, so if you want There I Clipped It to use a virtualenv, be sure to activate your virtualenv before running this script.")
     parser.add_argument("-u", "--userkey", required=True, help="Pushover user key. You can find this near the top of the page: https://pushover.net/ (when logged in).")
@@ -29,16 +32,24 @@ def main():
     requirements_path = os.path.join(install_path, "requirements.txt")
     call_command("pip install -r {}".format(requirements_path))
 
+    watch_path = os.path.join(install_path, "sharedboards")
+    clipboard_path = os.path.join(watch_path, "clipboard-{}.txt".format(args.computername))
+
+    if sys.platform == "darwin":
+        install_osx(args, install_path, watch_path, clipboard_path, python_path)
+    elif sys.platform == "win32":
+        install_windows(args, install_path, clipboard_path)
+
+
+def install_osx(args, install_path, watch_path, clipboard_path, python_path):
     # Install launchd plist
     # Copy into location, editing variables as we go
     launchagents_path = os.path.expanduser("~/Library/LaunchAgents")
     launchd_plist_source_path = "uk.co.whileyouweregone.thereiclippedit.plist"
     launchd_plist_destination_path = os.path.join(launchagents_path, launchd_plist_source_path)
-    watch_path = os.path.join(install_path, "sharedboards")
-    clipboard_path = os.path.join(watch_path, "clipboard-{}.txt".format(args.computername))
     launchd_replacements = (
         ("%%PYTHON_PATH%%", python_path),
-        ("%%PULL_SCRIPT_PATH%%", os.path.join(install_path, "pull_clipboard.py")),
+        ("%%PULL_SCRIPT_PATH%%", os.path.join(install_path, pull_script_name)),
         ("%%CLIPBOARD_PATH%%", clipboard_path),
         ("%%WATCH_PATH%%", watch_path))
 
@@ -56,7 +67,7 @@ def main():
     # Fill in variables in place
     workflow_replacements = (
         ("%%PYTHON_PATH%%", python_path),
-        ("%%PUSH_SCRIPT_PATH%%", os.path.join(install_path, "push_clipboard.py")),
+        ("%%PUSH_SCRIPT_PATH%%", os.path.join(install_path, push_script_name)),
         ("%%USER_KEY%%", args.userkey))
     fill_in_placeholders(os.path.join(workflow_path, "Contents/document.wflow"), workflow_replacements)
 
@@ -68,6 +79,34 @@ def main():
         "There, I Clipped It has been installed. Don't forget to set up a\n"
         "keyboard shortcut to the There, I Clipped It Service in:\n\n"
         "    System Preferences -> Keyboard -> Shortcuts -> Services")
+
+
+def install_windows(args, install_path, clipboard_path):
+    # Create VBS push script
+    push_vbs_template_path = os.path.join(install_path, "template_create_push_shortcut.vbs")
+    push_vbs_path = os.path.join(install_path, "create_push_shortcut.vbs")
+    push_replacements = (
+            ("%%PUSH_SCRIPT_PATH%%", os.path.join(install_path, push_script_name)),
+            ("%%USER_KEY%%", args.userkey))
+
+    fill_in_placeholders(push_vbs_template_path, push_replacements, push_vbs_path)
+
+    # Create VBS pull script
+    pull_vbs_template_path = os.path.join(install_path, "template_create_pull_shortcut.vbs")
+    pull_vbs_path = os.path.join(install_path, "create_pull_shortcut.vbs")
+    pull_replacements = (
+            ("%%PULL_SCRIPT_PATH%%", os.path.join(install_path, pull_script_name)),
+            ("%%CLIPBOARD_PATH%%", clipboard_path))
+
+    fill_in_placeholders(pull_vbs_template_path, pull_replacements, pull_vbs_path)
+
+    # Install them
+    call_command("cscript {}".format(push_vbs_path))
+    call_command("cscript {}".format(pull_vbs_path))
+
+    # Delete them
+    os.remove(push_vbs_path)
+    os.remove(pull_vbs_path)
 
 
 def fill_in_placeholders(source_path, replacements, output_path=None):
