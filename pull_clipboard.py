@@ -1,7 +1,11 @@
-import gntp.notifier
-import sys
+# Core imports
 import os
 import subprocess
+import sys
+
+# Other imports
+import gntp.notifier
+import pyperclip
 
 def main():
     if len(sys.argv) != 2:
@@ -17,7 +21,7 @@ def main():
         with open(clipboard_path) as f:
             cb = f.read()
 
-            set_clipboard_data(bytes(cb, 'UTF-8'))
+            pyperclip.copy(cb)
 
             try:
                 growl = gntp.notifier.GrowlNotifier(
@@ -45,10 +49,6 @@ def main():
     except FileNotFoundError:
         pass
 
-
-def set_clipboard_data(data):
-    p = subprocess.Popen(['pbcopy'], stdin=subprocess.PIPE)
-    p.communicate(data)
 
 if __name__ == '__main__':
     main()

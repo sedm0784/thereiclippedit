@@ -1,7 +1,11 @@
+# Core imports
 import argparse
 import subprocess
-import requests
 import urllib
+
+# Other imports
+import pyperclip
+import requests
 
 def main():
     parser = argparse.ArgumentParser()
@@ -16,7 +20,7 @@ def main():
 
     pushover_url = "https://api.pushover.net/1/messages.json"
 
-    cb = get_clipboard_data()
+    cb = pyperclip.paste()
 
     argv = urllib.parse.quote(cb)
     # Not 100% sure why we need to double-encode it, but we do. Something to do
