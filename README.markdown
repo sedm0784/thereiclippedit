@@ -130,10 +130,12 @@ requirements:
    app](http://contrast.co/launch-center-pro/), but you could create a home
    screen shortcut or Today view widget if you prefer.
 
-4. Get the `grab_clipboard.py` script into Pythonista. The obvious way would be
-   to SQUIRT it to your iOS clipboard with There, I Clipped It, but there's a
-   bit of a chicken-and-egg situation going on there. Sorry, you're on your own
-   for this one. Worst-case scenario you're just going to have to type it in.
+4. Get the
+   [grab_clipboard.py](https://raw.githubusercontent.com/sedm0784/thereiclippedit/master/grab_clipboard.py)
+   script into Pythonista. The obvious way would be to whizz it on over into
+   your iOS clipboard with There, I Clipped It, but there's a bit of a
+   chicken-and-egg situation going on there. Sorry, you're on your own for this
+   one. Worst-case scenario you're just going to have to type it in.
 
 ## Roadmap
 
