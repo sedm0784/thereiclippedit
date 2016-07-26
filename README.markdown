@@ -7,12 +7,14 @@ settings that make it FAST and EASY to INSTANTLY squirt your clipboard from your
 devices to your computers and vice versa.
 
 I made it because it was fun to do, and in order to avoid having to be LOCKED
-IN to any of the numerous professional solutions for this problem[^1].
+IN to any of the numerous professional solutions for this problem<sup>\*</sup>.
 
 It is named in homage to the [meme wherein repairs are made in an inelegant but
 effective style](http://google.com/search?q=there+i+fixed+it). If There, I
 Clipped It existed outside of your computing device, it would consist entirely
 of gaffer tape and odd bits of cardboard.
+
+<sup>* Read: because I am a cheapskate.</sup>
 
 ## How Does It Work?
 
@@ -70,15 +72,19 @@ First, you need to make sure you own/fulfil the following requirements:
 
 1. Obtain the scripts, placing them in your Dropbox:
 
-       cd ~/Dropbox
-       git clone https://github.com/sedm0784/thereiclippedit.git
+    ```sh
+    cd ~/Dropbox
+    git clone https://github.com/sedm0784/thereiclippedit.git
+    ```
 
 2. (Optional, recommended) Create a new virtualenv and activate it.
 
 3. Run the installation script:
 
-       cd thereiclippedit
-       ./install_thereiclippedit.py -u YOUR_PUSHOVER_USER_KEY -c THE_COMPUTER_NAME
+    ```sh
+    cd thereiclippedit
+    ./install_thereiclippedit.py -u YOUR_PUSHOVER_USER_KEY -c THE_COMPUTER_NAME
+    ```
 
 ### That Sounds a Bit Dodge. What Does the Installation Script Do?
 
@@ -103,5 +109,3 @@ First, you need to make sure you own/fulfil the following requirements:
 3. (Optional, recommended) Set up some method of firing off the Workflow
    quickly. I added a shortcut to the [Launch Center app](), but you could
    create a home screen shortcut or Today view widget if you prefer.
-
-[1]: Read: because I am a cheapskate.
