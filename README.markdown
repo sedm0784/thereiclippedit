@@ -139,4 +139,4 @@ could be added:
   Dropbox.
 
 - Might be nice to offer notifications using OS X's Notification Center instead
-  of required Growl.
+  of Growl.
