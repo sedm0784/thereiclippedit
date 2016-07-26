@@ -39,13 +39,13 @@ you must manually initiate the copy with a keyboard shortcut: Ctrl+Alt+C)*
 
 ### Squirting Your Computer's Clipboard to iOS
 
-You press a keyboard shortcut.<sup>2</sup>. This invokes the There, I Clipped
-It Service, which runs a Python script which reads your clipboard and sends it
-to your iOS device as a push notification (via the [Pushover
+You press a keyboard shortcut<sup>2</sup>. This invokes the There, I Clipped It
+Service, which runs a Python script that reads your clipboard and sends it to
+your iOS device as a push notification (via the [Pushover
 app](http://pushover.net/)). When your iOS device pings, you open the
 notification and tap on a link, which runs a script in the [Pythonista
-app](http://omz-software.com/pythonista/) which replaces your iOS clipboard
-with the copied text.
+app](http://omz-software.com/pythonista/) that STUFFS the copied text into your
+your iOS clipboard.
 
 <sup>2: I'm using Command+Option+Ctrl+V on OS X and Ctrl+Alt+V on Windows.</sup>
 
@@ -56,7 +56,7 @@ You really don't.
 Whilst I use it on several computers, and it works, There, I Clipped It is
 PRE-ALPHA quality software. The code&#8202;&mdash;&#8202;written in Python by a
 programmer who has only recently started learning that
-language&#8202;&mdash;&#8202;is of SUSPECT quality, and there are NO unit tests
+language&#8202;&mdash;&#8202;is of SUSPECT quality, there are NO unit tests,
 and NO Q.A. professionals (or, indeed, testers of any kind) have vetted it.
 
 There is at least a 70% chance that There, I Clipped It will FORMAT your hard
@@ -153,6 +153,12 @@ Me&trade;. However, there *are* some things that could be added:
 
 - Might be nice to offer notifications using OS X's Notification Center instead
   of Growl.
+
+- You currently have to inform There, I Clipped It of your Pushover User Key
+  during installation. Pushover offers a feature which automates this, so users
+  don't even have to *see* the UNGAINLY key. My predicted audience of There, I
+  Clipped It is zero, but if it turns out more people use it than expected, I
+  might look into this one.
 
 - I should probably better document the contents of the repository. What
   everything does and how it all works.
