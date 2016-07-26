@@ -14,7 +14,7 @@ effective style](http://google.com/search?q=there+i+fixed+it). If There, I
 Clipped It existed outside of your computing device, it would consist entirely
 of gaffer tape and odd bits of cardboard.
 
-<sup>* Read: because I am a cheapskate.</sup>
+<sup>\* Read: because I am a cheapskate.</sup>
 
 ## How Does It Work?
 
@@ -59,9 +59,9 @@ First, you need to make sure you own/fulfil the following requirements:
 
 1. An iOS device with the following apps installed:
 
-   - Pythonista
-   - Workflow
-   - Pushover
+   - [Workflow](http://workflow.is/)
+   - [Pushover](http://pushover.net/)
+   - [Pythonista](http://omz-software.com/pythonista/)
 
 2. At least one OS X computer with Python 3 and pip installed. (Windows version
    coming soon!)
@@ -107,5 +107,5 @@ First, you need to make sure you own/fulfil the following requirements:
    Installation,
 
 3. (Optional, recommended) Set up some method of firing off the Workflow
-   quickly. I added a shortcut to the [Launch Center app](), but you could
+   quickly. I added a shortcut to the [Launch Center Pro app](http://contrast.co/launch-center-pro/), but you could
    create a home screen shortcut or Today view widget if you prefer.
