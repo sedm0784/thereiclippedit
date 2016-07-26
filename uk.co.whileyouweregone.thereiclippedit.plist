@@ -10,17 +10,9 @@
 		<string>%%PULL_SCRIPT_PATH%%</string>
 		<string>%%CLIPBOARD_PATH%%</string>
 	</array>
-	<!--
-	<key>StandardOutPath</key>
-	<string>/Users/richie/Dropbox/clipboardtool/log</string>
-	<key>StandardErrorPath</key>
-	<string>/Users/richie/Dropbox/clipboardtool/err.log</string>
-	-->
 	<key>WatchPaths</key>
 	<array>
 		<string>%%WATCH_PATH%%</string>
 	</array>
-	<key>UserName</key>
-	<string>richie</string>
 </dict>
 </plist>
