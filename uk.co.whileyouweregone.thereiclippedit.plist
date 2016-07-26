@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>uk.co.whileyouweregone.pull_clipboard</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>%%PYTHON_PATH%%</string>
+		<string>%%PULL_SCRIPT_PATH%%</string>
+		<string>%%CLIPBOARD_PATH%%</string>
+	</array>
+	<!--
+	<key>StandardOutPath</key>
+	<string>/Users/richie/Dropbox/clipboardtool/log</string>
+	<key>StandardErrorPath</key>
+	<string>/Users/richie/Dropbox/clipboardtool/err.log</string>
+	-->
+	<key>WatchPaths</key>
+	<array>
+		<string>/Users/richie/Dropbox/clipboardtool/sharedboards</string>
+	</array>
+	<key>UserName</key>
+	<string>richie</string>
+</dict>
+</plist>

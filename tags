@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+argparse	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^import argparse$/;"	i
+argparse	/Users/rcheng/thereiclippedit/push_clipboard.py	/^import argparse$/;"	i
+call_command	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^def call_command(command):$/;"	f
+fill_in_placeholders	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^def fill_in_placeholders(source_path, replacements, output_path=None):$/;"	f
+format	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^                    format='%(asctime)s %(levelname)s %(message)s')$/;"	v
+get_clipboard_data	/Users/rcheng/thereiclippedit/push_clipboard.py	/^def get_clipboard_data():$/;"	f
+gntp	/Users/rcheng/thereiclippedit/pull_clipboard.py	/^import gntp.notifier$/;"	i
+logging	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^import logging$/;"	i
+main	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^def main():$/;"	f
+main	/Users/rcheng/thereiclippedit/pull_clipboard.py	/^def main():$/;"	f
+main	/Users/rcheng/thereiclippedit/push_clipboard.py	/^def main():$/;"	f
+notifier	/Users/rcheng/thereiclippedit/pull_clipboard.py	/^import gntp.notifier$/;"	i
+os	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^import os$/;"	i
+os	/Users/rcheng/thereiclippedit/pull_clipboard.py	/^import os$/;"	i
+re	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^import re$/;"	i
+requests	/Users/rcheng/thereiclippedit/push_clipboard.py	/^import requests$/;"	i
+set_clipboard_data	/Users/rcheng/thereiclippedit/pull_clipboard.py	/^def set_clipboard_data(data):$/;"	f
+shutil	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^import shutil$/;"	i
+subprocess	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^import subprocess$/;"	i
+subprocess	/Users/rcheng/thereiclippedit/pull_clipboard.py	/^import subprocess$/;"	i
+subprocess	/Users/rcheng/thereiclippedit/push_clipboard.py	/^import subprocess$/;"	i
+sys	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^import sys$/;"	i
+sys	/Users/rcheng/thereiclippedit/pull_clipboard.py	/^import sys$/;"	i
+tempfile	/Users/rcheng/thereiclippedit/install_thereiclippedit.py	/^import tempfile$/;"	i
+urllib	/Users/rcheng/thereiclippedit/push_clipboard.py	/^import urllib$/;"	i
