@@ -88,10 +88,8 @@ def main():
         payloads.append((message, supplementary_url))
         cb = cb[len(message):]
 
-    for message, supplementary_url in payloads:
-
-        # FIXME: Include instructions in 'message' field
-
+    messages = len(payloads)
+    for index, (message, supplementary_url) in enumerate(payloads):
         message_length = len(message)
         if message_length > pushover_max_message_length:
             logging.log(
@@ -108,10 +106,23 @@ def main():
                     url_length,
                     pushover_max_url_length))
 
+        title = 'There, I Clipped It'
+
+        if (index == 0):
+            url_title = 'Slurp this into iOS clipboard'
+        else:
+            url_title = "Append this to iOS clipboard"
+
+        if messages > 1:
+            message_numbering = ' ({} of {})'.format(index + 1, messages)
+            title += message_numbering
+            url_title += message_numbering
+
         payload = {'token': pushover_api_token,
                 'user': pushover_user_key,
+                'title': title,
                 'message': message,
-                'url_title': 'Slurp this into iOS clipboard',
+                'url_title': url_title,
                 'url': supplementary_url}
 
         r = requests.post(pushover_url, data=payload)
