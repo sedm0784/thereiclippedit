@@ -1,5 +1,6 @@
 # Core imports
 import argparse
+import logging
 import subprocess
 import urllib
 
@@ -7,38 +8,116 @@ import urllib
 import pyperclip
 import requests
 
+logging.basicConfig(level=logging.WARNING,
+                    format='%(asctime)s %(levelname)s %(message)s')
+
+pushover_max_url_length = 512
+pushover_max_message_length = 1024
+pushover_url = "https://api.pushover.net/1/messages.json"
+
+# For the time-being, using a central API token. If There, I Clipped it becomes
+# unexpectedly popular, I'll revisit.
+pushover_api_token = "af28ycmcg5qi1hzch7jvvx1gdnzrgd"
+
+supplementary_url_root = (
+    'pythonista://grab_clipboard.py?action=run&argv={}')
+
+append_url_suffix = '&argv=append'
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("userkey", help="pushover user key")
     args = parser.parse_args()
 
-    pushover_user_key = args.userkey # "uqDym6nBHZCFXvrwfGQSwE5ExPmR6o"
-
-    # For the time-being, using a central API token. If There, I Clipped it becomes unexpectedly popular, I'll revisit.
-    pushover_api_token = "af28ycmcg5qi1hzch7jvvx1gdnzrgd"
-    #drafts_key = ""
-
-    pushover_url = "https://api.pushover.net/1/messages.json"
+    pushover_user_key = args.userkey
 
     cb = pyperclip.paste()
 
-    argv = urllib.parse.quote(cb)
-    # Not 100% sure why we need to double-encode it, but we do. Something to do
-    # with the way Pushover processes/presents supplementary URLs. (URLs in the
-    # message body do not need to be double-encoded.
-    argv = urllib.parse.quote(argv)
+    payloads = []
 
-    payload = {'token': pushover_api_token,
-            'user': pushover_user_key,
-            'message': cb,
-            'url_title': 'Slurp this into iOS clipboard',
-            'url': 'pythonista://grab_clipboard.py?action=run&argv={}'.format(argv)}
+    # Pushover maximum URL length is 512 characters. If the clipboard contents
+    # are too long, we need to send multiple notifications, appending to the
+    # existing contents for all notifications apart from the first.
+    while cb:
+        # Because of the URL encoding, we're not entirely sure what length of
+        # message will fit. Just start with max possible, and then shrink until
+        # it fits.
+        message = cb
 
-            # This doesn't work. If we double encode, we get a URL encoded
-            # string in the Draft, and if we don't, newlines are stripped. Why?
-            #'url': 'drafts4://x-callback-url/create?key={0}&text={1}&action=Copy%20to%20Clipboard'.format(drafts_key, argv)}
+        # Not 100% sure why we need to double-encode it, but we do. Something
+        # to do with the way Pushover processes supplementary URLs. (URLs in
+        # the message body do not need to be double-encoded.)
+        argv = urllib.parse.quote(message)
+        argv = urllib.parse.quote(argv)
+        supplementary_url = supplementary_url_root.format(argv)
 
-    r = requests.post(pushover_url, data=payload)
+        # If this is not the first, tack on the "append" argv
+        if payloads:
+            supplementary_url += append_url_suffix
+
+        url_length = len(supplementary_url)
+
+        # If the URL is too long, shorten the message
+        while url_length > pushover_max_url_length:
+            overflow = url_length - pushover_max_url_length
+
+            # Each character we remove from the message could be as many as 20
+            # characters when double encoded. (A four-byte utf-8 character
+            # encodes to 4 groups of %xx and each of these groups then encodes
+            # to %25xx in the second encoding.) This means if we are currently
+            # over the limit and we remove overflow/20 characters, we'll
+            # definitely still be over the limit.
+            truncation_length = overflow // 20 + 1
+
+            # Chop the characters off the end of the message
+            removed = message[-truncation_length:]
+            message = message[:-truncation_length]
+
+            # And shrink the URL length accordingly
+            url_length -= len(urllib.parse.quote(urllib.parse.quote(removed)))
+
+        if message != cb:
+            # We had to chop some off the message. Update the URL
+            argv = urllib.parse.quote(message)
+            argv = urllib.parse.quote(argv)
+            supplementary_url = supplementary_url_root.format(argv)
+
+            if payloads:
+                supplementary_url += append_url_suffix
+
+        payloads.append((message, supplementary_url))
+        cb = cb[len(message):]
+
+    for message, supplementary_url in payloads:
+
+        # FIXME: Include instructions in 'message' field
+
+        message_length = len(message)
+        if message_length > pushover_max_message_length:
+            logging.log(
+                logging.ERROR,
+                "Length of message ({}) exceeds Pushover maximum ({})".format(
+                    message_length,
+                    pushover_max_message_length))
+
+        url_length = len(supplementary_url)
+        if url_length > pushover_max_url_length:
+            logging.log(
+                logging.ERROR,
+                "Length of supplementary URL ({}) exceeds Pushover maximum ({})".format(
+                    url_length,
+                    pushover_max_url_length))
+
+        payload = {'token': pushover_api_token,
+                'user': pushover_user_key,
+                'message': message,
+                'url_title': 'Slurp this into iOS clipboard',
+                'url': supplementary_url}
+
+        r = requests.post(pushover_url, data=payload)
+
+        if r.status_code != 200:
+            logging.log(logging.ERROR, r.text)
 
 
 def get_clipboard_data():
