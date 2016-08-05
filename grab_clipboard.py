@@ -2,6 +2,7 @@ import argparse
 import clipboard
 import console
 import sys
+import webbrowser
 
 parser = argparse.ArgumentParser()
 parser.add_argument("clipboard")
@@ -17,3 +18,5 @@ new_clipboard += args.clipboard
 
 clipboard.set(new_clipboard)
 console.alert('Clipboard set', new_clipboard, 'Yay', hide_cancel_button=True)
+
+webbrowser.open('pushover:')
