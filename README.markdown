@@ -120,7 +120,7 @@ requirements:
 
 ## iOS Installation
 
-1. Install the [There, I Clipped It workflow](https://workflow.is/workflows/a4b469cd702541fab1e3958b26d156ab),
+1. Install the [There, I Clipped It workflow](https://workflow.is/workflows/534e3962962747e988da3b8e65a41fa3),
 
 2. Edit the workflow with the names of the computers that you used during OS X
    Installation,
