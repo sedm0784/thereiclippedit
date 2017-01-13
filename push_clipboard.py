@@ -44,11 +44,7 @@ def main():
         # it fits.
         message = cb
 
-        # Not 100% sure why we need to double-encode it, but we do. Something
-        # to do with the way Pushover processes supplementary URLs. (URLs in
-        # the message body do not need to be double-encoded.)
         argv = urllib.parse.quote(message)
-        argv = urllib.parse.quote(argv)
         supplementary_url = supplementary_url_root.format(argv)
 
         # If this is not the first, tack on the "append" argv
@@ -61,25 +57,23 @@ def main():
         while url_length > pushover_max_url_length:
             overflow = url_length - pushover_max_url_length
 
-            # Each character we remove from the message could be as many as 20
-            # characters when double encoded. (A four-byte utf-8 character
-            # encodes to 4 groups of %xx and each of these groups then encodes
-            # to %25xx in the second encoding.) This means if we are currently
-            # over the limit and we remove overflow/20 characters, we'll
+            # Each character we remove from the message could be as many as 12
+            # characters when URL encoded. (A four-byte utf-8 character
+            # encodes to 4 groups of %xx.) This means if we are currently
+            # over the limit and we remove overflow/12 characters, we'll
             # definitely still be over the limit.
-            truncation_length = overflow // 20 + 1
+            truncation_length = overflow // 12 + 1
 
             # Chop the characters off the end of the message
             removed = message[-truncation_length:]
             message = message[:-truncation_length]
 
             # And shrink the URL length accordingly
-            url_length -= len(urllib.parse.quote(urllib.parse.quote(removed)))
+            url_length -= len(urllib.parse.quote(removed))
 
         if message != cb:
             # We had to chop some off the message. Update the URL
             argv = urllib.parse.quote(message)
-            argv = urllib.parse.quote(argv)
             supplementary_url = supplementary_url_root.format(argv)
 
             if payloads:
