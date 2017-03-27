@@ -106,13 +106,13 @@ requirements:
 2. *OS X:* Configures and installs the launchd plist to the location:
    `~/Library/LaunchAgents/`
 
-3. *OS X:* Configures and installs the There, I Clipped It Automator workflow as a
-   Service. (in `~/Library/Services/`
+3. *OS X:* Configures and installs the There, I Clipped It Automator workflow
+   as a Service. (in `~/Library/Services/`
 
 4. *OS X:* GENTLY reminds you (where) to set up a keyboard shortcut in System
    Preferences in order to invoke There, I Clipped It quickly.
 
-5. *Windows:* Configures and installs shortcuts for pushing and pulling you
+5. *Windows:* Configures and installs shortcuts for pushing and pulling your
    clipboard to your "Programs" folder. The push shortcut has the keyboard
    shortcut Ctrl+Alt+V and the pull shortcut has the keyboard shortcut
    Ctrl+Alt+C. If you want to use different shortcuts, you can edit them by
