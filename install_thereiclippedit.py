@@ -18,8 +18,12 @@ pull_script_name = "pull_clipboard.py"
 def main():
     parser = argparse.ArgumentParser(description="Installs the various component parts of the There, I Clipped It tool.", epilog="N.B. The installer bakes the location of the python used to run it into the installed components, so if you want There I Clipped It to use a virtualenv, be sure to activate your virtualenv before running this script.")
     parser.add_argument("-u", "--userkey", required=True, help="Pushover user key. You can find this near the top of the page: https://pushover.net/ (when logged in).")
-    parser.add_argument("-c", "--computername", required=True, help="Name of this computer. This needs to match the value used in the List action in the Push Clipboard Workflow on your iOS device.")
+    parser.add_argument("-c", "--computername", required=True, help="Name of this computer. Each computer you use There, I Clipped It with needs a different name. Can contain alphanumeric characters, hyphens, and underscores.")
     args = parser.parse_args()
+
+    if not re.search("^[a-zA-Z0-9_-]+$", args.computername):
+        print("Computer name can only contain the characters a-z, A-Z, 0-9, -, and _")
+        quit()
 
     # Get path of python
     python_path = sys.executable
@@ -34,6 +38,25 @@ def main():
 
     watch_path = os.path.join(install_path, "sharedboards")
     clipboard_path = os.path.join(watch_path, "clipboard-{}.txt".format(args.computername))
+    destinations_path = os.path.join(install_path, "destinations.txt")
+
+    # First check that the computer name doesn't already exist
+    try:
+        with open(destinations_path, newline='\n') as f:
+            for line in f:
+                # Punting on Unicode normalization here
+                if line[:-1].casefold() == args.computername.casefold():
+                    print(
+                        "You already have There, I Clipped It installed on a "
+                        "computer named: " + args.computername)
+                    quit()
+    except FileNotFoundError:
+        pass
+
+    # Add this computer to destinations.txt so that the Workflow offers it as a
+    # destination
+    with open(destinations_path, mode='a', newline='\n') as f:
+        f.write(args.computername + '\n')
 
     if sys.platform == "darwin":
         install_osx(args, install_path, watch_path, clipboard_path, python_path)

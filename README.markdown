@@ -71,7 +71,12 @@ requirements:
 
 1. An iOS device with the following apps installed:
 
+   For sending clipboards from phone to computer:
+
    - [Workflow](http://workflow.is/)
+
+   For sending clipboards from computer to phone:
+
    - [Pushover](http://pushover.net/)
    - [Pythonista](http://omz-software.com/pythonista/)
 
@@ -99,6 +104,13 @@ requirements:
     ./install_thereiclippedit.py -u YOUR_PUSHOVER_USER_KEY -c THE_COMPUTER_NAME
     ```
 
+    In a Windows command prompt, the command above may not work, and instead you
+    may need to invoke Python 3 manually:
+
+    ```sh
+    python install_thereiclippedit.py -u YOUR_PUSHOVER_USER_KEY -c THE_COMPUTER_NAME
+    ```
+
 ### That Sounds a Bit Dodge. What Does the Installation Script Do?
 
 1. Installs the Python requirements: requests, pyperclip, and gntp,
@@ -120,27 +132,30 @@ requirements:
 
 ## iOS Installation
 
-1. Install the [There, I Clipped It workflow](https://workflow.is/workflows/534e3962962747e988da3b8e65a41fa3),
+1. Install the [There, I Clipped It
+   workflow](https://workflow.is/workflows/a79cd11e505f48bcb941e9b4818b64ba),
 
-2. Edit the workflow with the names of the computers that you used during OS X
-   Installation,
-
-3. (Optional, recommended) Set up some method of firing off the Workflow
+2. (Optional, recommended) Set up some method of firing off the Workflow
    quickly. I added a shortcut to the [Launch Center Pro
    app](http://contrast.co/launch-center-pro/), but you could create a home
    screen shortcut or Today view widget if you prefer.
 
-4. Get the
+3. Get the
    [grab_clipboard.py](https://raw.githubusercontent.com/sedm0784/thereiclippedit/master/grab_clipboard.py)
    script into Pythonista. The obvious way would be to whizz it on over into
    your iOS clipboard with There, I Clipped It, but there's a bit of a
    chicken-and-egg situation going on there. Sorry, you're on your own for this
    one. Worst-case scenario you're just going to have to type it in.
 
-5. Bonus feature! In order to squirt directly from iOS apps, install the
-   [There, I Clipped It Action
-   Extension](https://workflow.is/workflows/e6b0999ec8de4c76939e13c49432bcc2)
-   too.
+4. Bonus feature! In order to squirt directly from iOS apps, install the
+   [There, I Clipped It action extension for
+   Text](https://workflow.is/workflows/cd487e1fa3884e5a93fd8e7c61b0698a) and
+   the [There, I Clipped In action extension for
+   URLs](https://workflow.is/workflows/6ad781fbc65a421baf6464f6f85198e3). There
+   are two separate extensions so that you can ensure the correct type is
+   passed from the app to Workflow. e.g. when squirting directly from Safari,
+   you may want sometimes to squirt the *content* of the page and other times to
+   squirt its *address*.
 
 ## Roadmap
 
