@@ -133,7 +133,7 @@ requirements:
 ## iOS Installation
 
 1. Install the [There, I Clipped It
-   workflow](https://workflow.is/workflows/a79cd11e505f48bcb941e9b4818b64ba),
+   Push Clipboard workflow](https://workflow.is/workflows/3f65611417b24686809ae2b1f6f04778),
 
 2. (Optional, recommended) Set up some method of firing off the Workflow
    quickly. I added a shortcut to the [Launch Center Pro
@@ -149,9 +149,9 @@ requirements:
 
 4. Bonus feature! In order to squirt directly from iOS apps, install the
    [There, I Clipped It action extension for
-   Text](https://workflow.is/workflows/cd487e1fa3884e5a93fd8e7c61b0698a) and
+   Text](https://workflow.is/workflows/d3b81daa068e47dcbbb04395fb7f434c) and
    the [There, I Clipped In action extension for
-   URLs](https://workflow.is/workflows/6ad781fbc65a421baf6464f6f85198e3). There
+   URLs](https://workflow.is/workflows/3873101f476e4d629bac2cd8e628d0d0). There
    are two separate extensions so that you can ensure the correct type is
    passed from the app to Workflow. e.g. when squirting directly from Safari,
    you may want sometimes to squirt the *content* of the page and other times to
