@@ -21,14 +21,15 @@ of gaffer tape and odd bits of cardboard.
 
 ### Squirting the iOS Clipboard to a Computer
 
-You invoke the There, I Clipped It workflow in the [Workflow
-app](http://workflow.is/). It asks you which of your computers you want your
-clipboard to be SQUIRTED to. It then saves the contents of your clipboard to a
-file in your Dropbox. The corresponding computer, which is watching like a HAWK
-for that file to be created (via
-[launchd](https://en.wikipedia.org/wiki/Launchd)), then runs a Python script to
-replace your clipboard with the file's contents. A Growl notification pops up
-to inform you your clipboard is ready to SATE your PASTE-FURY.
+You invoke the There, I Clipped It shortcut in the [Shortcuts
+app](https://itunes.apple.com/app/workflow-powerful-automation/id915249334). It
+asks you which of your computers you want your clipboard to be SQUIRTED to. It
+then saves the contents of your clipboard to a file in your Dropbox. The
+corresponding computer, which is watching like a HAWK for that file to be
+created (via [launchd](https://en.wikipedia.org/wiki/Launchd)), then runs a
+Python script to replace your clipboard with the file's contents. A Growl
+notification pops up to inform you your clipboard is ready to SATE your
+PASTE-FURY.
 
 *(Windows does not include a method of creating watch folders as part of the
 operating system. It's possible to create a program that carries out this task,
@@ -73,7 +74,8 @@ requirements:
 
    For sending clipboards from phone to computer:
 
-   - [Shortcuts](https://itunes.apple.com/app/workflow-powerful-automation/id915249334) (née Workflow)
+   - [Shortcuts](https://itunes.apple.com/app/workflow-powerful-automation/id915249334)
+     (née Workflow)
 
    For sending clipboards from computer to phone:
 
@@ -133,9 +135,9 @@ requirements:
 ## iOS Installation
 
 1. Install the [There, I Clipped It
-   Push Clipboard workflow](https://www.icloud.com/shortcuts/874fd5c2185e4d019b6dc656ca29b031),
+   Push Clipboard shortcut](https://www.icloud.com/shortcuts/874fd5c2185e4d019b6dc656ca29b031),
 
-2. (Optional, recommended) Set up some method of firing off the Workflow
+2. (Optional, recommended) Set up some method of firing off the shortcut
    quickly. I added a shortcut to the [Launch Center Pro
    app](http://contrast.co/launch-center-pro/), but you could create a home
    screen shortcut or Today view widget if you prefer.
@@ -151,11 +153,11 @@ requirements:
    [There, I Clipped It action extension for
    Text](https://www.icloud.com/shortcuts/874fd5c2185e4d019b6dc656ca29b031) and
    the [There, I Clipped In action extension for
-   URLs](https://www.icloud.com/shortcuts/25ac823fc7ae4960a7c8f30f28a32c5b). There
-   are two separate extensions so that you can ensure the correct type is
-   passed from the app to Workflow. e.g. when squirting directly from Safari,
-   you may want sometimes to squirt the *content* of the page (Text) and other times to
-   squirt its *address* (URL).
+   URLs](https://www.icloud.com/shortcuts/25ac823fc7ae4960a7c8f30f28a32c5b).
+   There are two separate extensions so that you can ensure the correct type is
+   passed from the app to Shortcuts. e.g. when squirting directly from Safari,
+   you may want sometimes to squirt the *content* of the page (Text) and other
+   times to squirt its *address* (URL).
 
 ## Roadmap
 
@@ -166,7 +168,7 @@ Me&trade;. However, there *are* some things that could be added:
   tools simply because those were the ones I already had installed, but There,
   I Clipped It is conceptually pretty simple, and each of the tools used has
   any number of possible replacements. It might be nice to implement some
-  alternatives (e.g. Launch Center Pro instead of Workflow, Prowl instead of
+  alternatives (e.g. Launch Center Pro instead of Shortcuts, Prowl instead of
   Pushover) and allow the use of these.
 
 - Distribution: the contents of the repository could be made available as a zip
