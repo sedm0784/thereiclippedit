@@ -73,7 +73,7 @@ requirements:
 
    For sending clipboards from phone to computer:
 
-   - [Workflow](http://workflow.is/)
+   - [Shortcuts](https://itunes.apple.com/app/workflow-powerful-automation/id915249334) (née Workflow)
 
    For sending clipboards from computer to phone:
 
@@ -133,7 +133,7 @@ requirements:
 ## iOS Installation
 
 1. Install the [There, I Clipped It
-   Push Clipboard workflow](https://workflow.is/workflows/3f65611417b24686809ae2b1f6f04778),
+   Push Clipboard workflow](https://www.icloud.com/shortcuts/874fd5c2185e4d019b6dc656ca29b031),
 
 2. (Optional, recommended) Set up some method of firing off the Workflow
    quickly. I added a shortcut to the [Launch Center Pro
@@ -149,13 +149,13 @@ requirements:
 
 4. Bonus feature! In order to squirt directly from iOS apps, install the
    [There, I Clipped It action extension for
-   Text](https://workflow.is/workflows/d3b81daa068e47dcbbb04395fb7f434c) and
+   Text](https://www.icloud.com/shortcuts/874fd5c2185e4d019b6dc656ca29b031) and
    the [There, I Clipped In action extension for
-   URLs](https://workflow.is/workflows/3873101f476e4d629bac2cd8e628d0d0). There
+   URLs](https://www.icloud.com/shortcuts/25ac823fc7ae4960a7c8f30f28a32c5b). There
    are two separate extensions so that you can ensure the correct type is
    passed from the app to Workflow. e.g. when squirting directly from Safari,
-   you may want sometimes to squirt the *content* of the page and other times to
-   squirt its *address*.
+   you may want sometimes to squirt the *content* of the page (Text) and other times to
+   squirt its *address* (URL).
 
 ## Roadmap
 
